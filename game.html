@@ -8,7 +8,7 @@
       .indicatorDot {
         width: 50px;
         height: 50px;
-        background-color: pink;
+        background-color: orange;
         border-radius: 50%;
         position: fixed;
       }
@@ -58,16 +58,16 @@
       var vy = 0.0;
       var updateRate = 1 / 60; // Sensor refresh rate
 
-      number = 0;
       function getAccel() {
-        number++;
-        var elem = document.getElementsByClassName("indicatorDot")[0];
-        elem.innerText = number;
         DeviceMotionEvent.requestPermission().then((response) => {
           if (response == "granted") {
             // Add a listener to get smartphone orientation
             // in the alpha-beta-gamma axes (units in degrees)
             window.addEventListener("deviceorientation", (event) => {
+              // Check for collisions
+              var elem = document.getElementsByClassName("indicatorDot")[0];
+              var demoDiv = document.getElementById("demo");
+              elem.innerText = elem.offsetLeft;
               // Expose each orientation angle in a more readable way
               rotation_degrees = event.alpha;
               frontToBack_degrees = event.beta;
@@ -110,7 +110,7 @@
         onclick="getAccel()"
         style="width: 100%; font-size: 150px"
       >
-        START!
+        START
       </button>
 
       <div class="indicatorDot" style="left: 20%; top: 35%"></div>
