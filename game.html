@@ -14,7 +14,7 @@
       }
 
       .wall {
-        width: 100px;
+        width: 1000px;
         height: 100px;
         background-color: red;
         position: relative;
@@ -30,12 +30,12 @@
         }
         25% {
           background-color: yellow;
-          left: 200px;
+          left: 50%;
           top: 0px;
         }
         50% {
           background-color: blue;
-          left: 200px;
+          left: 50%;
           top: 200px;
         }
         75% {
@@ -74,7 +74,7 @@
               var wall = document.getElementsByClassName("wall")[0];
               var wallLeft = wall.offsetLeft;
               var wallTop = wall.offsetTop;
-              var wallRight = wallLeft + 100;
+              var wallRight = wallLeft + 1000;
               var wallBottom = wallTop + 100;
 
               if (
