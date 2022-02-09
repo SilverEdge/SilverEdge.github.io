@@ -8,7 +8,7 @@
       .indicatorDot {
         width: 50px;
         height: 50px;
-        background-color: greenyellow;
+        background-color: white;
         border-radius: 50%;
         position: fixed;
       }
@@ -34,17 +34,17 @@
 
               // Update velocity according to how tilted the phone is
               // Since phones are narrower than they are long, double the increase to the x velocity
-              vx = (vx + leftToRight_degrees * updateRate * 2) * 0.1;
-              vy = (vy + frontToBack_degrees * updateRate) * 0.1;
+              vx = vx + leftToRight_degrees * updateRate * 2;
+              vy = vy + frontToBack_degrees * updateRate;
 
               // Update position and clip it to bounds
-              px = px + vx;
+              px = px + vx * 0.1;
               if (px > 98 || px < 0) {
                 px = Math.max(0, Math.min(98, px)); // Clip px between 0-98
                 vx = 0;
               }
 
-              py = py + vy;
+              py = py + vy * 0.1;
               if (py > 98 || py < 0) {
                 py = Math.max(0, Math.min(98, py)); // Clip py between 0-98
                 vy = 0;
