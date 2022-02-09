@@ -41,13 +41,13 @@
               speed = 0.1;
               px = px + vx * speed;
               if (px > 95 || px < 0) {
-                px = Math.max(0, Math.min(98, px)); // Clip px between 0-98
+                px = Math.max(0, Math.min(95, px)); // Clip px between 0-98
                 vx = 0;
               }
 
               py = py + vy * speed;
               if (py > 95 || py < 0) {
-                py = Math.max(0, Math.min(98, py)); // Clip py between 0-98
+                py = Math.max(0, Math.min(95, py)); // Clip py between 0-98
                 vy = 0;
               }
 
