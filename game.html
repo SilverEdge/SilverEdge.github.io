@@ -61,7 +61,7 @@
       number = 0;
       function getAccel() {
         number++;
-        var elem = document.getElementByClassName("indicatorDot");
+        var elem = document.getElementsByClassName("indicatorDot")[0];
         elem.innerText = number;
         DeviceMotionEvent.requestPermission().then((response) => {
           if (response == "granted") {
