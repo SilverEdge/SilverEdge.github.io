@@ -58,7 +58,11 @@
       var vy = 0.0;
       var updateRate = 1 / 60; // Sensor refresh rate
 
+      number = 0;
       function getAccel() {
+        number++;
+        var elem = document.getElementByClassName("indicatorDot");
+        elem.innerText = number;
         DeviceMotionEvent.requestPermission().then((response) => {
           if (response == "granted") {
             // Add a listener to get smartphone orientation
@@ -109,7 +113,7 @@
         START
       </button>
 
-      <div class="indicatorDot" style="left: 30%; top: 30%"></div>
+      <div class="indicatorDot" style="left: 20%; top: 35%"></div>
       <div class="wall"></div>
     </div>
   </body>
