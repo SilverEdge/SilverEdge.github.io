@@ -65,9 +65,27 @@
             // in the alpha-beta-gamma axes (units in degrees)
             window.addEventListener("deviceorientation", (event) => {
               // Check for collisions
-              var elem = document.getElementsByClassName("indicatorDot")[0];
-              var demoDiv = document.getElementById("demo");
-              elem.innerText = elem.offsetLeft;
+              var ball = document.getElementsByClassName("indicatorDot")[0];
+              var ballLeft = ball.offsetLeft;
+              var ballTop = ball.offsetTop;
+              var ballRight = ballLeft + 50;
+              var ballBottom = ballTop + 50;
+
+              var wall = document.getElementsByClassName("wall")[0];
+              var wallLeft = wall.offsetLeft;
+              var wallTop = wall.offsetTop;
+              var wallRight = wallLeft + 100;
+              var wallBottom = wallTop + 100;
+
+              if (
+                ballLeft < wallRight &&
+                ballLeft > wallLeft &&
+                ballTop > wallBottom &&
+                ballTop < wallTop
+              ) {
+                alert("You didn't survive!");
+              }
+
               // Expose each orientation angle in a more readable way
               rotation_degrees = event.alpha;
               frontToBack_degrees = event.beta;
