@@ -8,7 +8,7 @@
       .indicatorDot {
         width: 50px;
         height: 50px;
-        background-color: white;
+        background-color: greenyellow;
         border-radius: 50%;
         position: fixed;
       }
@@ -38,14 +38,15 @@
               vy = vy + frontToBack_degrees * updateRate;
 
               // Update position and clip it to bounds
-              px = px + vx * 0.1;
-              if (px > 98 || px < 0) {
+              speed = 0.1;
+              px = px + vx * speed;
+              if (px > 95 || px < 0) {
                 px = Math.max(0, Math.min(98, px)); // Clip px between 0-98
                 vx = 0;
               }
 
-              py = py + vy * 0.1;
-              if (py > 98 || py < 0) {
+              py = py + vy * speed;
+              if (py > 95 || py < 0) {
                 py = Math.max(0, Math.min(98, py)); // Clip py between 0-98
                 vy = 0;
               }
