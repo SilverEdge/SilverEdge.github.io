@@ -78,10 +78,10 @@
               var wallBottom = wallTop + 100;
 
               if (
-                ballLeft < wallRight
-                // ballLeft > wallLeft &&
-                // ballTop > wallBottom &&
-                // ballTop < wallTop
+                ballLeft < wallRight &&
+                ballRight > wallLeft &&
+                ballTop > wallBottom &&
+                ballBottom < wallTop
               ) {
                 alert("You didn't survive!");
               }
