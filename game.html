@@ -24,14 +24,6 @@
         animation: myfirst 5s linear 2s infinite alternate;
       }
 
-      .wall2 {
-        width: 1000px;
-        height: 100px;
-        background-color: red;
-        position: relative;
-        animation: mysecond 5s linear 2s infinite alternate;
-      }
-
       /* Animation for obsticle */
       @keyframes myfirst {
         0% {
@@ -58,35 +50,6 @@
           background-color: red;
           left: 0px;
           top: 0px;
-        }
-      }
-
-      /* Animation for obsticle */
-      @keyframes mysecond {
-        0% {
-          background-color: red;
-          left: 0px;
-          top: 1000px;
-        }
-        25% {
-          background-color: yellow;
-          left: 50%;
-          top: 1000px;
-        }
-        50% {
-          background-color: blue;
-          left: 50%;
-          top: 1200px;
-        }
-        75% {
-          background-color: green;
-          left: 0px;
-          top: 1200px;
-        }
-        100% {
-          background-color: red;
-          left: 0px;
-          top: 1000px;
         }
       }
     </style>
@@ -117,21 +80,11 @@
               var wallRight = wallLeft + 1000;
               var wallBottom = wallTop + 100;
 
-              var wall2 = document.getElementsByClassName("wall2")[0];
-              var wall2Left = wall2.offsetLeft;
-              var wall2Top = wall2.offsetTop;
-              var wall2Right = wall2Left + 1000;
-              var wall2Bottom = wall2Top + 100;
-
               if (
-                (ballLeft < wallRight &&
-                  ballRight > wallLeft &&
-                  ballTop < wallBottom &&
-                  ballBottom > wallTop) ||
-                (ballLeft < wall2Right &&
-                  ballRight > wall2Left &&
-                  ballTop < wall2Bottom &&
-                  ballBottom > wall2Top)
+                ballLeft < wallRight &&
+                ballRight > wallLeft &&
+                ballTop < wallBottom &&
+                ballBottom > wallTop
               ) {
                 alert("You didn't survive!");
                 location.reload();
@@ -184,7 +137,6 @@
 
       <div class="indicatorDot" style="left: 20%; top: 35%"></div>
       <div class="wall"></div>
-      <div class="wall2"></div>
     </div>
   </body>
 </html>
